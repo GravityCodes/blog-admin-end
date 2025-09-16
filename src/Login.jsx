@@ -24,7 +24,7 @@ export default function Login() {
 
     if (!request.ok){
       const response = await request.json();
-      const errorMessage = response.errors[0].msg;
+      const errorMessage = response.errors?.[0]?.msg || response.msg;
 
       setErrors(errorMessage);
       return null;

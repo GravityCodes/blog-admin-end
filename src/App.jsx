@@ -10,17 +10,18 @@ function App() {
   const [error, setError] = useState(null);
   const [post, setPost] = useState(null);
   const [postError, setPostError] = useState(null);
+
   useEffect(() => {
     async function fethUserData(){
       try{
-          const response = await fetch(import.meta.env.VITE_BLOG_USER, {
+          const userResponse = await fetch(import.meta.env.VITE_BLOG_USER, {
             credentials: 'include',
           });
-          if(!response.ok){
+          if(!userResponse.ok){
             navigate("/login");
             return;
           } else {
-          const user = await response.json();
+          const user = await userResponse.json();
           setUser(user);
           }
       }catch(error){
@@ -33,18 +34,18 @@ function App() {
     
     async function fetchPostData(){
       try{
-        const request = await fetch(import.meta.env.VITE_BLOG_POST, {
+        const postResponse = await fetch(import.meta.env.VITE_BLOG_POST, {
           credentials: 'include',
         });
 
-        const result = await request.json()
-
-        if(!request.ok){
+        if(!postResponse.ok){
           setPostError(result);
           return null;
+        }else{
+          const result = await postResponse.json()
+          setPost(result);
         }
 
-        setPost(result);
         return null;
 
       }catch(error){
@@ -55,7 +56,7 @@ function App() {
     }
 
     fethUserData();
-
+    fetchPostData();
   }, []);
   
   if(loading) return <div>Loading...</div>
