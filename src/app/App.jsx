@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import './App.css'
-import Post from "./Post";
+import Posts from "./Posts";
 
 function App() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [post, setPost] = useState(null);
+  const [posts, setPosts] = useState(null);
   const [postError, setPostError] = useState(null);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
           return null;
         }else{
           const result = await postResponse.json()
-          setPost(result);
+          setPosts(result);
         }
 
         return null;
@@ -67,7 +67,7 @@ function App() {
       <div>
         <h1>JohanCodes Admin</h1>
         <p>Welcome back, {user.name}</p>
-        <Post post={post} postError={postError}/>
+        <Posts posts={posts} postError={postError}/>
       </div>        
     </>
   )
