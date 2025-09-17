@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { Link } from 'react-router';
 import "./posts.css";
 
 const Post = ({posts, postError}) => {
@@ -29,7 +30,7 @@ const Post = ({posts, postError}) => {
                         <td>{post.title}</td>
                         <td>{post.publish ? "Yes" : "No"}</td>
                         <td>{post.timestamp}</td>
-                        <td>Edit</td>
+                        <td><Link to={`/edit-post/${post.id}`}>Edit</Link></td>
                     </tr>
                 )
             })}

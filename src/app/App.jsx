@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import './App.css'
-import Posts from "./Posts";
+import Posts from "./components/Posts";
 
 function App() {
   const [user, setUser] = useState({});
@@ -37,12 +37,11 @@ function App() {
         const postResponse = await fetch(import.meta.env.VITE_BLOG_POST, {
           credentials: 'include',
         });
-
+        const result = await postResponse.json()
         if(!postResponse.ok){
           setPostError(result);
           return null;
         }else{
-          const result = await postResponse.json()
           setPosts(result);
         }
 
@@ -67,6 +66,7 @@ function App() {
       <div>
         <h1>JohanCodes Admin</h1>
         <p>Welcome back, {user.name}</p>
+        <button>Create New Post</button>
         <Posts posts={posts} postError={postError}/>
       </div>        
     </>
