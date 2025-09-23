@@ -1,13 +1,13 @@
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
-
-
+import { useEffect, useState, useRef } from "react";
+import EditorComponent from "./components/EditorComponent";
+import style from "./editPost.module.css";
 const EditPost = () => {
     const {postId} = useParams();
     const [post, setPost] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    // const editorJs = useRef(null);
     useEffect(() => {
         async function Post(){
             try{
@@ -30,18 +30,18 @@ const EditPost = () => {
                 setLoading(false);
             }
         }
-
         Post();
     }, []);
 
     if(loading) return <div>Loading</div>;
     if(error) return <div>{error}</div>
-
-    console.log(post);
     return (
-        <div>
-            Data arrived
-        </div>
+        <>
+            <div id="editor-wrapper">
+                <EditorComponent post={post}/>
+            </div>
+        </>
+
     )
 
 }
