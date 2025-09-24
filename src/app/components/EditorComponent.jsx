@@ -5,7 +5,7 @@ import EditorjsList from "@editorjs/list";
 import CodeTool from "@editorjs/code";
 import styles from "./editorComponent.module.css";
 import Quote from "@editorjs/quote";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -16,6 +16,7 @@ const EditorComponent = ({ post }) => {
   const [title, setTitle] = useState(post.title);
   const [editTitle, setEditTitle] = useState(false);
 
+  const navigate = useNavigate();
   const initEditor = () => {
     const editor = new EditorJS({
       holder: "editorjs",
@@ -98,6 +99,43 @@ const EditorComponent = ({ post }) => {
     setEditTitle(false);
   };
 
+  const deletePost = async () => {
+    try {
+      const confirmed = window.confirm("Are you sure you want to delete this?");
+
+      if (confirmed) {
+        const userPassword = window.prompt(
+          "Please enter your password to confirm deletion.",
+        );
+
+        if (userPassword == null) {
+          return;
+        }
+
+        const response = await fetch(
+          `${import.meta.env.VITE_BLOG_POST}/${post.id}`,
+          {
+            method: "DELETE",
+            body: JSON.stringify({ password: userPassword }),
+            credentials: "include",
+          },
+        );
+
+        if (!response.ok) {
+          window.alert(response.msg);
+          return;
+        }
+
+        navigate("/");
+      } else {
+        //do nothing
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className={styles["editor-actions"]}>
@@ -106,6 +144,7 @@ const EditorComponent = ({ post }) => {
             <button>Back</button>
           </Link>
           <button onClick={saveData}>Save</button>
+          <button onClick={deletePost}>Delete</button>
         </div>
         <div className={styles["title-wrapper"]}>
           <label htmlFor="title">Title</label>
