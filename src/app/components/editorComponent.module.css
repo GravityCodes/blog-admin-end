@@ -1,3 +1,41 @@
 .editor-actions {
-    
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  width: 300px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.btns-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.publish-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.publish-wrapper p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.publish-wrapper button {
+  font-size: 0.9rem;
+  padding: 5px;
+}
+
+.publish-btn-online {
+  color: rgb(81, 167, 81);
+}
+
+.publish-btn-offline {
+  color: red;
 }
