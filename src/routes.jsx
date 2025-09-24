@@ -1,8 +1,8 @@
-import Login from './Login.jsx'
-import App from './app/App.jsx'
-import EditPost from './app/EditPost.jsx'
+import Login from "./Login.jsx";
+import App from "./app/App.jsx";
+import EditPost from "./app/EditPost.jsx";
 
-const routes =[
+const routes = [
   {
     path: "/",
     element: <App />,
@@ -14,7 +14,7 @@ const routes =[
   {
     path: "/edit-post/:postId",
     element: <EditPost />,
-  }
+  },
 ];
 
 export default routes;

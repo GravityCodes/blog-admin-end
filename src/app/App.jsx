@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router'
-import './App.css'
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import "./App.css";
 import Posts from "./components/Posts";
 
 function App() {
@@ -12,42 +12,41 @@ function App() {
   const [postError, setPostError] = useState(null);
 
   useEffect(() => {
-    async function fethUserData(){
-      try{
-          const userResponse = await fetch(import.meta.env.VITE_BLOG_USER, {
-            credentials: 'include',
-          });
-          if(!userResponse.ok){
-            navigate("/login");
-            return;
-          } else {
+    async function fethUserData() {
+      try {
+        const userResponse = await fetch(import.meta.env.VITE_BLOG_USER, {
+          credentials: "include",
+        });
+        if (!userResponse.ok) {
+          navigate("/login");
+          return;
+        } else {
           const user = await userResponse.json();
           setUser(user);
-          }
-      }catch(error){
+        }
+      } catch (error) {
         console.error(error);
         setError(error);
-      }finally{
+      } finally {
         setLoading(false);
       }
     }
-    
-    async function fetchPostData(){
-      try{
+
+    async function fetchPostData() {
+      try {
         const postResponse = await fetch(import.meta.env.VITE_BLOG_POST, {
-          credentials: 'include',
+          credentials: "include",
         });
-        const result = await postResponse.json()
-        if(!postResponse.ok){
+        const result = await postResponse.json();
+        if (!postResponse.ok) {
           setPostError(result);
           return null;
-        }else{
+        } else {
           setPosts(result);
         }
 
         return null;
-
-      }catch(error){
+      } catch (error) {
         console.error(error);
         setPostError(error);
         return null;
@@ -57,20 +56,20 @@ function App() {
     fethUserData();
     fetchPostData();
   }, []);
-  
-  if(loading) return <div>Loading...</div>
-  if(error) return <div>A network error has occured</div>
-  
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>A network error has occured</div>;
+
   return (
     <>
       <div>
         <h1>JohanCodes Admin</h1>
         <p>Welcome back, {user.name}</p>
         <button>Create New Post</button>
-        <Posts posts={posts} postError={postError}/>
-      </div>        
+        <Posts posts={posts} postError={postError} />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
