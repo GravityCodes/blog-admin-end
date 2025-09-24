@@ -91,12 +91,12 @@ const EditorComponent = ({ post }) => {
   const cancelTitleChange = () => {
     setTitle(post.title);
     setEditTitle(false);
-  }
+  };
 
   const confirmTitleChange = () => {
     saveData();
     setEditTitle(false);
-  }
+  };
 
   return (
     <>
@@ -108,20 +108,37 @@ const EditorComponent = ({ post }) => {
           <button onClick={saveData}>Save</button>
         </div>
         <div className={styles["title-wrapper"]}>
-            <label htmlFor="title">Title</label>
-            <div className={styles["input-wrapper"]}>
-                <input type="text" value={title} name="title" id="title" disabled={!editTitle} onChange={(e) => setTitle(e.target.value)}/>
-                {editTitle ? 
-                    <div className={styles["input-btn-actions-wrapper"]}>
-                        <img src="/cancel.svg" alt="title cancel button" onClick={cancelTitleChange}/>
-                        <img src="/confirm.svg" alt="title confirm button" onClick={confirmTitleChange} />
-                    </div>
-                :
-                    <img src="/edit.svg" alt="title edit button" onClick={() => setEditTitle(true)}/>
-                }
-                
-            </div>
-
+          <label htmlFor="title">Title</label>
+          <div className={styles["input-wrapper"]}>
+            <input
+              type="text"
+              value={title}
+              name="title"
+              id="title"
+              disabled={!editTitle}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            {editTitle ? (
+              <div className={styles["input-btn-actions-wrapper"]}>
+                <img
+                  src="/cancel.svg"
+                  alt="title cancel button"
+                  onClick={cancelTitleChange}
+                />
+                <img
+                  src="/confirm.svg"
+                  alt="title confirm button"
+                  onClick={confirmTitleChange}
+                />
+              </div>
+            ) : (
+              <img
+                src="/edit.svg"
+                alt="title edit button"
+                onClick={() => setEditTitle(true)}
+              />
+            )}
+          </div>
         </div>
         {isPublish ? (
           <div className={styles["publish-wrapper"]}>
