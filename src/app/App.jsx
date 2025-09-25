@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 import "./App.css";
 import Posts from "./components/Posts";
-
+import { Link, useNavigate } from "react-router";
 function App() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -57,6 +56,24 @@ function App() {
     fetchPostData();
   }, []);
 
+  const logOutUser = async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_BLOG_LOGOUT, {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        console.error("An error has occured:", response.msg);
+        return;
+      }
+
+      navigate("/login");
+    } catch (error) {
+      console.error("A server error has occured:", error);
+    }
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>A network error has occured</div>;
 
@@ -64,8 +81,11 @@ function App() {
     <>
       <div>
         <h1>JohanCodes Admin</h1>
+        <button onClick={logOutUser}>Logout</button>
         <p>Welcome back, {user.name}</p>
-        <button>Create New Post</button>
+        <Link to="/create-post">
+          <button>Create New Post</button>
+        </Link>
         <Posts posts={posts} postError={postError} />
       </div>
     </>
