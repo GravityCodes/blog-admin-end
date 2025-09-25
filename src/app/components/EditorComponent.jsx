@@ -116,6 +116,9 @@ const EditorComponent = ({ post }) => {
           `${import.meta.env.VITE_BLOG_POST}/${post.id}`,
           {
             method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify({ password: userPassword }),
             credentials: "include",
           },
