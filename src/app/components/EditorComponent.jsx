@@ -182,6 +182,11 @@ const EditorComponent = ({ post }) => {
             )}
           </div>
         </div>
+        <div className={styles["comment-wrapper"]}>
+          <Link to={`/comments/${post.id}`}>
+            <button>Manage Comments</button>
+          </Link>
+        </div>
         {isPublish ? (
           <div className={styles["publish-wrapper"]}>
             <p>This post is live</p>

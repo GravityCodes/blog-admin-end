@@ -2,6 +2,7 @@ import Login from "./Login.jsx";
 import App from "./app/App.jsx";
 import EditPost from "./app/EditPost.jsx";
 import CreatePost from "./app/CreatePost.jsx";
+import Comments from "./app/Comments.jsx";
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: "/create-post",
     element: <CreatePost />,
+  },
+  {
+    path: "/comments/:postId",
+    element: <Comments />,
   },
 ];
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import "./posts.css";
+import styles from "./posts.module.css";
 
 const Post = ({ posts, postError }) => {
   const [loading, setLoading] = useState(true);
@@ -14,12 +14,13 @@ const Post = ({ posts, postError }) => {
   if (loading) return <div>Loading...</div>;
   if (postError) return <div>An error has occured</div>;
   return (
-    <table>
+    <table className={styles.table}>
       <thead>
         <tr>
           <th scope="col">Title</th>
           <th scope="col">Published</th>
           <th scope="col">Created</th>
+          <th scope="col">Comments</th>
           <th></th>
         </tr>
       </thead>
@@ -30,6 +31,7 @@ const Post = ({ posts, postError }) => {
               <td>{post.title}</td>
               <td>{post.publish ? "Yes" : "No"}</td>
               <td>{post.timestamp}</td>
+              <td>{post.comments.length}</td>
               <td>
                 <Link to={`/edit-post/${post.id}`}>Edit</Link>
               </td>
