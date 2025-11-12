@@ -38,15 +38,26 @@ export default function Login() {
 
   return (
     <div className={styles.main}>
-      <h1>Login</h1>
+      <img src="/logo.svg" alt="admin page logo" />
+      <h1>Login Into Your Account</h1>
       <form action={formSubmit} className={styles.form}>
         <div className={styles.formSection}>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" />
+          <label htmlFor="email">EMAIL</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email@example.com"
+          />
         </div>
         <div className={styles.formSection}>
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" />
+          <label htmlFor="password">PASSWORD</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
         </div>
         <button type="submit">Log In</button>
         <div>{errors}</div>
