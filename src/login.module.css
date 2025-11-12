@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formSection input {
+  background-color: #b0b0b0;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}

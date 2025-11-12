@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import Posts from "./components/Posts";
 import { Link, useNavigate } from "react-router";
+import styles from "./app.module.css";
+
 function App() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -78,17 +79,15 @@ function App() {
   if (error) return <div>A network error has occured</div>;
 
   return (
-    <>
-      <div>
-        <h1>JohanCodes Admin</h1>
-        <button onClick={logOutUser}>Logout</button>
-        <p>Welcome back, {user.name}</p>
-        <Link to="/create-post">
-          <button>Create New Post</button>
-        </Link>
-        <Posts posts={posts} postError={postError} />
-      </div>
-    </>
+    <div className={styles.main}>
+      <h1>JohanCodes Admin</h1>
+      <button onClick={logOutUser}>Logout</button>
+      <p>Welcome back, {user.name}</p>
+      <Link to="/create-post">
+        <button>Create New Post</button>
+      </Link>
+      <Posts posts={posts} postError={postError} />
+    </div>
   );
 }
 
