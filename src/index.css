@@ -38,8 +38,26 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+
+label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.487);
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #285fcc55;
+  padding: 10px 0px;
+  color: black;
+  transition: border 0.5s;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-bottom-color: #167ee6;
 }
 
 @media (prefers-color-scheme: light) {

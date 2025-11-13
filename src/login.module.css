@@ -20,43 +20,11 @@
   flex-direction: column;
   justify-content: center;
   gap: 40px;
-  width: 20%;
-}
-
-.form button {
-  background-color: #ffaa0033;
-  transition: background-color 0.2s;
-}
-
-.form button:hover {
-  background-color: #ffaa00;
-  outline: none;
-  border: 1px solid transparent;
+  width: 40%;
 }
 
 .formSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.formSection label {
-  font-size: 0.7rem;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.487);
-}
-
-.formSection input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #285fcc55;
-  padding: 10px 0px;
-  color: black;
-  transition: border 0.5s;
-  font-size: 1rem;
-}
-
-.formSection input:focus {
-  outline: none;
-  border-bottom-color: #167ee6;
 }

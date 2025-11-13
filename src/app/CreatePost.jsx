@@ -30,19 +30,22 @@ const CreatePost = () => {
   };
 
   return (
-    <>
+    <div className={styles.main}>
       <div className={styles.nav}>
-        <Link to="/">Back</Link>
+        <Link to="/">
+          <img src="/arrow-left-circle.svg" alt="Back arrow" />
+          <p>BACK</p>
+        </Link>
       </div>
-      <form action={createPost}>
-        <p>Post will be offline and avaible to edit in the home page.</p>
-        <div className={styles["form-field"]}>
-          <label htmlFor="title">Title</label>
-          <input type="text" name="title" id="title" />
+      <form action={createPost} className={styles.form}>
+        <p>*Post will be offline and avaible to edit in the home page.*</p>
+        <div className={styles.formField}>
+          <label htmlFor="title">TITLE</label>
+          <input type="text" name="title" id="title" placeholder="Title" />
           <button type="submit">Create</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,31 @@
+.nav a {
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.nav a p {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: black;
+}
+
+.form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form p {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
