@@ -80,13 +80,19 @@ function App() {
 
   return (
     <div className={styles.main}>
-      <h1>JohanCodes Admin</h1>
-      <button onClick={logOutUser}>Logout</button>
-      <p>Welcome back, {user.name}</p>
-      <Link to="/create-post">
-        <button>Create New Post</button>
-      </Link>
-      <Posts posts={posts} postError={postError} />
+      <nav className={styles.nav}>
+        <h1>JohanCodes Admin</h1>
+        <button onClick={logOutUser}>Logout</button>
+      </nav>
+      <div className={styles.content}>
+        <div className={styles.createPost}>
+          <Link to="/create-post">
+            <img src="/plus-square.svg" alt="Create a new post button" />
+          </Link>
+          <p>Create New Post</p>
+        </div>
+        <Posts posts={posts} postError={postError} />
+      </div>
     </div>
   );
 }

@@ -30,7 +30,7 @@ const Post = ({ posts, postError }) => {
             <tr className="post-container" key={post.id}>
               <td>{post.title}</td>
               <td>{post.publish ? "Yes" : "No"}</td>
-              <td>{post.timestamp}</td>
+              <td>{new Date(post.timestamp).toLocaleDateString("en-US")}</td>
               <td>{post.comments.length}</td>
               <td>
                 <Link to={`/edit-post/${post.id}`}>Edit</Link>
