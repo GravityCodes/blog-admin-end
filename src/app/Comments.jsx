@@ -74,8 +74,12 @@ const Comments = () => {
             {comments.map((comment) => {
               return (
                 <div className={styles.comment} key={comment.id}>
-                  <p><b>COMMENT</b>: {comment.content}</p>
-                  <p><b>USER</b>: {comment.user.name}</p>
+                  <p>
+                    <b>COMMENT</b>: {comment.content}
+                  </p>
+                  <p>
+                    <b>USER</b>: {comment.user.name}
+                  </p>
                   <button onClick={() => removeComment(comment.id)}>
                     Remove
                   </button>

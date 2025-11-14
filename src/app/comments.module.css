@@ -11,29 +11,29 @@
 }
 
 .comments {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .comments > p {
-    padding: 10px;
+  padding: 10px;
 }
 
 .comment {
-    padding: 10px;
-    background-color: #cacaca;
-    border-radius: 5px;
+  padding: 10px;
+  background-color: #cacaca;
+  border-radius: 5px;
 }
 
-.comment:nth-child(even){
-    background-color: #f0f0f0;
+.comment:nth-child(even) {
+  background-color: #f0f0f0;
 }
 
 .comment p b {
-    font-size: 0.8rem;
-    color: #5d5d5d;
+  font-size: 0.8rem;
+  color: #5d5d5d;
 }
