@@ -28,3 +28,24 @@
   flex-direction: column;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .main h1 {
+    font-size: 1rem;
+  }
+  .main img {
+    width: 8%;
+  }
+}
+
+@media screen and (max-width: 674px) {
+  .form {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main img {
+    width: 12%;
+  }
+}
