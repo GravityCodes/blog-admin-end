@@ -59,7 +59,7 @@ export default function Login() {
             placeholder="Password"
           />
         </div>
-        <button type="submit">Log In</button>
+        <button type="submit">LOG IN</button>
         <div>{errors}</div>
       </form>
     </div>

@@ -1,25 +1,68 @@
-.editor-actions {
+.editorActions {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  padding: 10px;
   border: 1px solid black;
-  width: 300px;
+  max-width: 700px;
   margin: 20px auto;
   border-radius: 10px;
 }
 
-.btns-wrapper {
+.actionsTop {
   display: flex;
-  gap: 20px;
+  background-color: #cacaca;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  gap: 10px;
 }
 
-.publish-wrapper {
+.actionsTop button {
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.actionsBottom {
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  width: 100%;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 10px;
   align-items: center;
+}
+
+.inputWrapper input {
+  flex: 2;
+}
+
+.inputWrapper img,
+.inputBtnActionsWrapper img {
+  height: 25px;
+  cursor: pointer;
+}
+
+.inputBtnActionsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.publishWrapper {
+  padding: 15px;
 }
 
 .publish-wrapper p {
@@ -27,48 +70,16 @@
   font-size: 1.2rem;
 }
 
-.publish-wrapper button {
+.publishWrapper button {
   font-size: 0.9rem;
-  padding: 5px;
-}
-
-.publish-btn-online {
-  color: rgb(81, 167, 81);
-}
-
-.publish-btn-offline {
-  color: red;
-}
-
-.title-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title-wrapper label {
   font-weight: bold;
+  background-color: #cacaca;
 }
 
-.title-wrapper input {
-  padding: 5px;
+.publishBtnOnline {
+  color: rgb(33, 159, 33);
 }
 
-.input-wrapper {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.input-wrapper img,
-.input-btn-actions-wrapper img {
-  height: 25px;
-  cursor: pointer;
-}
-
-.input-btn-actions-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.publishBtnOffline {
+  color: rgb(182, 7, 7);
 }

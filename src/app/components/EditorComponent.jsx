@@ -141,73 +141,71 @@ const EditorComponent = ({ post }) => {
 
   return (
     <>
-      <div className={styles["editor-actions"]}>
-        <div className={styles["btns-wrapper"]}>
+      <div className={styles.editorActions}>
+        <div className={styles.actionsTop}>
           <Link to={"/"}>
-            <button>Back</button>
+            <button>BACK</button>
           </Link>
-          <button onClick={saveData}>Save</button>
-          <button onClick={deletePost}>Delete</button>
-        </div>
-        <div className={styles["title-wrapper"]}>
-          <label htmlFor="title">Title</label>
-          <div className={styles["input-wrapper"]}>
-            <input
-              type="text"
-              value={title}
-              name="title"
-              id="title"
-              disabled={!editTitle}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            {editTitle ? (
-              <div className={styles["input-btn-actions-wrapper"]}>
-                <img
-                  src="/cancel.svg"
-                  alt="title cancel button"
-                  onClick={cancelTitleChange}
-                />
-                <img
-                  src="/confirm.svg"
-                  alt="title confirm button"
-                  onClick={confirmTitleChange}
-                />
-              </div>
-            ) : (
-              <img
-                src="/edit.svg"
-                alt="title edit button"
-                onClick={() => setEditTitle(true)}
-              />
-            )}
-          </div>
-        </div>
-        <div className={styles["comment-wrapper"]}>
+          <button onClick={saveData}>SAVE</button>
+          <button onClick={deletePost}>DELETE</button>
           <Link to={`/comments/${post.id}`}>
-            <button>Manage Comments</button>
+            <button>COMMENTS</button>
           </Link>
         </div>
-        {isPublish ? (
-          <div className={styles["publish-wrapper"]}>
-            <p>This post is live</p>
-            <button
-              className={styles["publish-btn-offline"]}
-              onClick={() => setIsPublish(false)}
-            >
-              Unpublish
-            </button>
+        <div className={styles.actionsBottom}>
+          <div className={styles.titleWrapper}>
+            <label htmlFor="title">Title</label>
+            <div className={styles.inputWrapper}>
+              <input
+                type="text"
+                value={title}
+                name="title"
+                id="title"
+                disabled={!editTitle}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              {editTitle ? (
+                <div className={styles.inputBtnActionsWrapper}>
+                  <img
+                    src="/cancel.svg"
+                    alt="title cancel button"
+                    onClick={cancelTitleChange}
+                  />
+                  <img
+                    src="/confirm.svg"
+                    alt="title confirm button"
+                    onClick={confirmTitleChange}
+                  />
+                </div>
+              ) : (
+                <img
+                  src="/edit.svg"
+                  alt="title edit button"
+                  onClick={() => setEditTitle(true)}
+                />
+              )}
+            </div>
           </div>
-        ) : (
-          <div className={styles["publish-wrapper"]}>
-            <p>This post is offline</p>
-            <button
-              className={styles["publish-btn-online"]}
-              onClick={() => setIsPublish(true)}
-            >
-              publish
-            </button>
-          </div>
-        )}
+          {isPublish ? (
+            <div className={styles.publishWrapper}>
+              <button
+                className={styles.publishBtnOffline}
+                onClick={() => setIsPublish(false)}
+              >
+                UNPUBLISH
+              </button>
+            </div>
+          ) : (
+            <div className={styles.publishWrapper}>
+              <button
+                className={styles.publishBtnOnline}
+                onClick={() => setIsPublish(true)}
+              >
+                PUBLISH
+              </button>
+            </div>
+          )}
+        </div>
       </div>
       <div className={styles["post-info"]}>
         <div></div>
