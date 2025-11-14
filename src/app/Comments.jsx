@@ -1,4 +1,4 @@
-import Styles from "./comments.module.css";
+import styles from "./comments.module.css";
 import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 const Comments = () => {
@@ -64,23 +64,37 @@ const Comments = () => {
     <div>
       {comments.length > 0 ? (
         <div>
-          <Link to={`/edit-post/${postId}`}>Back</Link>
-          {comments.map((comment) => {
-            return (
-              <div className={Styles["comment"]} key={comment.id}>
-                <p>content: {comment.content}</p>
-                <p>user: {comment.user.name}</p>
-                <button onClick={() => removeComment(comment.id)}>
-                  Remove
-                </button>
-              </div>
-            );
-          })}
+          <div className={styles.nav}>
+            <Link to="/">
+              <img src="/arrow-left-circle.svg" alt="Back arrow" />
+              <p>BACK</p>
+            </Link>
+          </div>
+          <div className={styles.comments}>
+            {comments.map((comment) => {
+              return (
+                <div className={styles.comment} key={comment.id}>
+                  <p><b>COMMENT</b>: {comment.content}</p>
+                  <p><b>USER</b>: {comment.user.name}</p>
+                  <button onClick={() => removeComment(comment.id)}>
+                    Remove
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       ) : (
         <div>
-          <Link to={`/edit-post/${postId}`}>Back</Link>
-          <p>There are no comments on this post</p>
+          <div className={styles.nav}>
+            <Link to="/">
+              <img src="/arrow-left-circle.svg" alt="Back arrow" />
+              <p>BACK</p>
+            </Link>
+          </div>
+          <div className={styles.comments}>
+            <p>There are no comments on this post</p>
+          </div>
         </div>
       )}
     </div>
